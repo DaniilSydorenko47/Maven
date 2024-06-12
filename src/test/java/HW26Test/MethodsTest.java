@@ -38,6 +38,12 @@ public class MethodsTest {
         Assertions.assertEquals(true,index);
     }
     @Test
+    public void notSquareMatrixTest(){
+        int[][] array = new int[][]{{1,2,3},{4,5,6},{7,8,9,10}};
+        boolean index = methods.squareArray(array);
+        Assertions.assertEquals(false,index);
+    }
+    @Test
     public void squareMatrixNullTest(){
         int[][] array = null;
         boolean index = methods.squareArray(array);
