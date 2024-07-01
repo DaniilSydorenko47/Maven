@@ -1,6 +1,9 @@
 package HW28;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Scanner;
 
 public class IOMain {
@@ -43,19 +46,16 @@ public class IOMain {
             while((i = fr.read()) != -1){
                 System.out.print((char) i);
             }
-
             File file3 = new File("src/main/java/HW28/destination.txt");
             FileWriter fw = new FileWriter("src/main/java/HW28/destination.txt");
             file3.createNewFile();
             System.out.println();
-            fw.write(someText);
-
-
+            String result = Files.readString(Path.of("src/main/java/HW28/source.txt"));
+            fw.write(result);
             fw.flush();
         } catch(IOException e){
             e.printStackTrace();
         }
-
 
         Person person = new Person("Daniil");
         try(ObjectOutputStream outputStream =
